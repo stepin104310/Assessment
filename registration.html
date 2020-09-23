@@ -3,120 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>validateForm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script>
-        function printError(elemId, hintMsg) {
-            document.getElementById(elemId).innerHTML = hintMsg;
-        }
+        function validate() {
+            var name = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+            var email = document.getElementById('password'.value)
+            var phone = document.getElementById('phone').value;
+            var phone = document.getElementById('phone').value;
 
-        function validateForm() {
-
-            var name = document.contactForm.name.value;
-            var email = document.contactForm.email.value;
-            var mobile = document.contactForm.mobile.value;
-            var pass = document.contactForm.password.value;
             var arr = ["sachin", "tom", "radhe"];
 
-            var nameErr = emailErr = mobileErr = passErr = true;
+            var regname = /^[a-zA-Z\s]+$/;
+            var regpass = /^[a-zA-Z\s0-9$]+$/;
+            var regphone = /^[0-9]\d{9}$/;
 
-
-            if (name == "") {
-                printError("nameErr", "Please enter your name");
-            } else {
-                var reg = /^[a-zA-Z\s]+$/;
-                if (reg.test(name) === false) {
-                    printError("nameErr", "Please enter a valid name");
-                } else {
-                    printError("nameErr", "");
-                    nameErr = false;
-                }
+            if (name == "" || !(name.match(regname))) {
+                alert("Enter a valid name more than 5 charachter and less than 15 charachter");
+                document.getElementById('username').focus();
+            }else if (!(password.match(regpass))) {
+                alert("Password should contain lower case, upper case and use dollar sign in your password");
+                document.getElementById('password').focus();
             }
-            if (name.length > 5 || name.length < 15) {
-            
+            else if (!(phone.match(regphone)) || phone == "") {
+                alert("Phone number should be of 10 digit atleast");
+                document.getElementById('phone').focus();
+            }else if (name.length > 5 || name.length < 15) {
+
                 for (var i in arr) {
                     if (name == arr[i]) {
                         alert('user name exists');
                         document.contactForm.name.focus();
                     }
-                    else{}
-                    document.getElementById("demo").innerHTML = name
-                }
-            }
-            
-            if (pass == "") {
-                printError("passErr", "Please enter your password");
-            } else {
-                var reg = /^[a-zA-Z0-9$]\d{10}/;
-                if (reg.test(name) === false) {
-                    printError("passErr", "Please enter a valid password");
-                } else {
-                    printError("passErr", "");
-                    nameErr = false;
                 }
             }
 
-            if (mobile == "") {
-                printError("mobileErr", "Please enter your mobile number");
-            } else {
-                var reg = /^[0-9]\d{9}$/;
-                if (reg.test(mobile) === false) {
-                    printError("mobileErr", "Please enter a valid 10 digit mobile number");
-                } else {
-                    printError("mobileErr", "");
-                    mobileErr = false;
-                }
-            }
+        }
 
-            if ((nameErr || emailErr || mobileErr || passErr) == true) {
-                return false;
-            } else {
-                var dataPreview = "You've entered the following details: \n" +
-                    "Full Name: " + name + "\n" +
-                    "Email Address: " + email + "\n" +
-                    "Mobile Number: " + mobile + "\n" +
-                    "Password is protected"
-
-                alert(dataPreview);
-            }
-
-
-        };
     </script>
 </head>
 
 <body>
-    <form name="contactForm" onsubmit="return validateForm()" action="#" method="post">
-        <h2>Application Form</h2>
-
-        <div>
-            <label>Username</label>
-            <input type="text" name="name">
-            <div class="error" id="nameErr"></div>
-        </div>
-
-        <div>
-            <label>Email Address</label>
-            <input type="text" name="email" required>
-            <div class="error" id="emailErr"></div>
-        </div>
-
-        <div>
-            <label>Mobile Number</label>
-            <input type="text" name="mobile">
-            <div class="error" id="mobileErr"></div>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password">
-            <div class="error" id="passErr"></div>
-        </div>
-
-        <div class>
-            <input type="submit" value="Submit">
-        </div>
-        <p id="demo"> </p>
+    <form id="myform">
+        User Name : <input type="text" id="username"><br>
+        Password : <input type="password" id="password"><br>
+        E-mail : <input type="email" id="email" required><br>
+        Phone Number: <input type="number" id="phone"> <br>
+        <input type="submit" value="submit" onclick="validate()">
 
     </form>
 </body>
+<div id="print"></div>
 
 </html>
