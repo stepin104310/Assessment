@@ -17,7 +17,7 @@
             var arr = ["sachin", "tom", "radhe"];
 
             var regname = /^[a-zA-Z\s]+$/;
-            var regpass = /^[a-zA-Z\s0-9$]+$/;
+            var regpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])$/;
             var regphone = /^[0-9]\d{9}$/;
 
             if (name == "" || !(name.match(regname))) {
@@ -39,6 +39,7 @@
                     }
                 }
             }
+            document.getElementById("demo").innerHTML="Welcom" + name;
 
         }
 
@@ -52,6 +53,7 @@
         E-mail : <input type="email" id="email" required><br>
         Phone Number: <input type="number" id="phone"> <br>
         <input type="submit" value="submit" onclick="validation()">
+        <span id ="demo"></span>
 
     </form>
 </body>
