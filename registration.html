@@ -17,7 +17,7 @@
             var arr = ["sachin", "tom", "radhe"];
 
             var regname = /^[a-zA-Z\s]+$/;
-            var regpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])$/;
+            var regpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{2,}$/;
             var regphone = /^[0-9]\d{9}$/;
 
             if (name == "" || !(name.match(regname))) {
