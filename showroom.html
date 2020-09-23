@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    Select your favourite gadget: <select name="gadget" id="gadgets" onchange="gadgets()">
+      <option selected="" value="Default">--Select--</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile</option>
+      <option value="TV">TV</option>
+    </select>
+  </div>
+  <br>
+ <span id="demo"></span>
+
+  <script>
+      var gadgets = () => {
+      var name = document.getElementById("gadgets").value;
+      if (name == "Laptop") {
+        var gadgetTypes = ['Lenova', 'Sony', 'Apple'];
+        document.getElementById("demo").innerHTML = gadgetTypes.join("<br>");
+      } else if (name == "Mobile") {
+        var gadgetTypes = ['iphone', 'Samsung', 'Nokia'];
+        document.getElementById("demo").innerHTML = gadgetTypes.join("<br>");
+      } else if (name == "TV") {
+        var gadgetTypes = ['Sony', 'Panasonic', 'Bravia'];
+        document.getElementById("demo").innerHTML = gadgetTypes.join("<br>");
+      }
+    }
+  </script>
+</body>
+
+</html>

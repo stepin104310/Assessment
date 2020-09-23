@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>validateForm</title>
+    <script>
+        function printError(elemId, hintMsg) {
+            document.getElementById(elemId).innerHTML = hintMsg;
+        }
+
+        function validateForm() {
+
+            var name = document.contactForm.name.value;
+            var email = document.contactForm.email.value;
+            var mobile = document.contactForm.mobile.value;
+            var pass = document.contactForm.password.value;
+            var arr = ["sachin", "tom", "radhe"];
+
+            var nameErr = emailErr = mobileErr = passErr = true;
+
+
+            if (name == "") {
+                printError("nameErr", "Please enter your name");
+            } else {
+                var reg = /^[a-zA-Z\s]+$/;
+                if (reg.test(name) === false) {
+                    printError("nameErr", "Please enter a valid name");
+                } else {
+                    printError("nameErr", "");
+                    nameErr = false;
+                }
+            }
+            if (name.length > 5 || name.length < 15) {
+            
+                for (var i in arr) {
+                    if (name == arr[i]) {
+                        alert('user name exists');
+                        document.contactForm.name.focus();
+                    }
+                    else{}
+                    document.getElementById("demo").innerHTML = name
+                }
+            }
+            
+            if (pass == "") {
+                printError("passErr", "Please enter your password");
+            } else {
+                var reg = /^[a-zA-Z0-9$]\d{10}/;
+                if (reg.test(name) === false) {
+                    printError("passErr", "Please enter a valid password");
+                } else {
+                    printError("passErr", "");
+                    nameErr = false;
+                }
+            }
+
+            if (mobile == "") {
+                printError("mobileErr", "Please enter your mobile number");
+            } else {
+                var reg = /^[0-9]\d{9}$/;
+                if (reg.test(mobile) === false) {
+                    printError("mobileErr", "Please enter a valid 10 digit mobile number");
+                } else {
+                    printError("mobileErr", "");
+                    mobileErr = false;
+                }
+            }
+
+            if ((nameErr || emailErr || mobileErr || passErr) == true) {
+                return false;
+            } else {
+                var dataPreview = "You've entered the following details: \n" +
+                    "Full Name: " + name + "\n" +
+                    "Email Address: " + email + "\n" +
+                    "Mobile Number: " + mobile + "\n" +
+                    "Password is protected"
+
+                alert(dataPreview);
+            }
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <form name="contactForm" onsubmit="return validateForm()" action="#" method="post">
+        <h2>Application Form</h2>
+
+        <div>
+            <label>Username</label>
+            <input type="text" name="name">
+            <div class="error" id="nameErr"></div>
+        </div>
+
+        <div>
+            <label>Email Address</label>
+            <input type="text" name="email">
+            <div class="error" id="emailErr"></div>
+        </div>
+
+        <div>
+            <label>Mobile Number</label>
+            <input type="text" name="mobile">
+            <div class="error" id="mobileErr"></div>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password">
+            <div class="error" id="passErr"></div>
+        </div>
+
+        <div class>
+            <input type="submit" value="Submit">
+        </div>
+        <p id="demo"> </p>
+
+    </form>
+</body>
+
+</html>
