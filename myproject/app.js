@@ -14,7 +14,7 @@ app.get("/alldetails", function(req, res)
     res.send(names);
 })
 
-// Search Hotel by City (Mysore, Banglore and Hyderabad)
+
 app.get("/searchCity", function(req, res)
 {
     keyword = req.query.city;
@@ -23,13 +23,13 @@ app.get("/searchCity", function(req, res)
     {
         if(keyword == element.city)
         {
-            search.push(element.name); // this will only send name of the hotel, for full detail use push(element)
+            search.push(element.name); 
         }
     });
     res.send(search);
 })
 
-// Search Hotel by Type (Veg/Non-Veg)
+
 app.get("/searchType", function(req, res)
 {
     keyword = req.query.types;
@@ -38,13 +38,13 @@ app.get("/searchType", function(req, res)
     {
         if(keyword == element.type)
         {
-            Type.push(element.name); // this will only send name of the hotel, for full detail use push(element)
+            Type.push(element.name); 
         }
     });
     res.send(Type);
 })
 
-// Search by Cuisine (Indian, Arabian and Italian)
+
 app.get("/searchCuisine", function(req, res)
 {
     keyword = req.query.cuisine;
@@ -63,7 +63,7 @@ app.get("/searchCuisine", function(req, res)
 })
 
 
-// Server Listening...
+
 app.listen(3000, function(req, res)
 {
     console.log("Server listening to port 3000");
