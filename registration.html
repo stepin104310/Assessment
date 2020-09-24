@@ -5,45 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
-    <script>
-        function validation() {
-            var name = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var email = document.getElementById('email').value;
-            var email = document.getElementById('password'.value)
-            var phone = document.getElementById('phone').value;
-            var phone = document.getElementById('phone').value;
-
-            var arr = ["sachin", "tom", "radhe"];
-
-            var regname = /^[a-zA-Z\s]+$/;
-            var regpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{2,}$/;
-            var regphone = /^[0-9]\d{9}$/;
-
-            if (name == "" || !(name.match(regname))) {
-                alert("Enter a valid name more than 5 charachter and less than 15 charachter");
-                document.getElementById('username').focus();
-            }else if (!(password.match(regpass))) {
-                alert("Password should contain lower case, upper case and use dollar sign in your password");
-                document.getElementById('password').focus();
-            }
-            else if (!(phone.match(regphone)) || phone == "") {
-                alert("Phone number should be of 10 digit atleast");
-                document.getElementById('phone').focus();
-            }else if (name.length > 5 || name.length < 15) {
-
-                for (var i in arr) {
-                    if (name == arr[i]) {
-                        alert('user name exists');
-                        document.contactForm.name.focus();
-                    }
-                }
-            }
-            document.getElementById("demo").innerHTML="Welcom" + name;
-
-        }
-
-    </script>
 </head>
 
 <body>
@@ -53,10 +14,56 @@
         E-mail : <input type="email" id="email" required><br>
         Phone Number: <input type="number" id="phone"> <br>
         <input type="submit" value="submit" onclick="validation()">
-        <span id ="demo"></span>
-
     </form>
+    <p id="demo"></p>
 </body>
 <div id="print"></div>
+
+<script>
+    var arr = ["sachin", "tommy singh", "Akash kumar"];
+    function validation() {
+        var name = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var email = document.getElementById('email').value;
+        var email = document.getElementById('password'.value)
+        var phone = document.getElementById('phone').value;
+        var phone = document.getElementById('phone').value;
+
+        var regname = /^[a-zA-Z\s]+$/;
+        var regpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        var regphone = /^[0-9]\d{9}$/;
+
+        if (name == "" || !(name.match(regname))) {
+            alert("Enter a valid name more than 5 charachter and less than 15 charachter");
+            document.getElementById('username').focus();
+        } else if (!(password.match(regpass))) {
+            alert("Password should contain lower case, upper case and use dollar sign in your password");
+            document.getElementById('password').focus();
+        }
+        else if (!(phone.match(regphone)) || phone == "") {
+            alert("Phone number should be of 10 digit atleast");
+            document.getElementById('phone').focus();
+        }
+        else{
+            document.getElementById("demo").innerHTML = name;
+            alert("success")
+        }
+
+        if (name.length > 5) {
+            for (let i in arr) {
+                if (name == arr[i]) {
+                    alert("Name already exist")
+                    return false
+                }
+            }
+            alert("welcome user")
+            return true;
+        }
+        else {
+            alert("Name cannot be less than 5 letters")
+        }
+    }
+
+</script>
 
 </html>
