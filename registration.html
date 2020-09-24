@@ -6,63 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
 </head>
+<script type="text/javascript">
 
-<body>
-    <form id="myform">
-        User Name : <input type="text" id="username"><br>
-        Password : <input type="password" id="password"><br>
-        E-mail : <input type="email" id="email" required><br>
-        Phone Number: <input type="number" id="phone"> <br>
-        <input type="submit" value="submit" onclick="validation()">
-    </form>
-    <p id="demo"></p>
-</body>
-<div id="print"></div>
-
-<script>
-    var arr = ["sachin", "tommy singh", "Akash kumar"];
     function validation() {
         var name = document.getElementById('username').value;
         var password = document.getElementById('password').value;
-        var email = document.getElementById('password'.value)
+        var email = document.getElementById('email').value;
         var phone = document.getElementById('phone').value;
 
-        var regname = /^[a-zA-Z\s]+$/;
-        var regpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-        var regphone = /^[0-9]\d{9}$/;
+        var arr = ["sachin", "tommy singh", "Akash kumar"];
+        var check_username =/^[a-zA-Z\s]+$/;
+        var check_phone = /^[0-9]\d{9}$/;
+        var check_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+        var check_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
 
-        if (name == "" || !(name.match(regname))) {
-            alert("Enter a valid name more than 5 charachter and less than 15 charachter");
-            document.getElementById('username').focus();
-            
-        } else if (!(password.match(regpass))) {
-            alert("Password should contain lower case, upper case and use dollar sign in your password");
-            document.getElementById('password').focus();
+        if (check_username.test(name) === false || name.length < 5 || name.length > 15) {
+            alert("Name should be greater than 5 and less than 15");
         }
-        else if (!(phone.match(regphone)) || phone == "") {
-            alert("Phone number should be of 10 digit atleast");
-            document.getElementById('phone').focus();
+        else if (check_email.test(email) === false) {
+            alert("Fill the e-mail correctly");
         }
-        else{
-            document.getElementById("demo").innerHTML = name;
-            alert("success")
+        else if (check_password.test(password) === false || password == "") {
+            alert("password should contain special charachter, number and letters");
+            //try password - Testing193!
+        }
+        else if (check_phone.test(phone) === false) {
+            alert("phone should be of 10 digits");
+        }
+        if(arr.indexOf(name) !== -1 )
+        {
+            alert('user name exists');
+            document.getElementById('name').focus();
         }
 
-        if (name.length > 5) {
-            for (let i in arr) {
-                if (name == arr[i]) {
-                    alert("Name already exist")
-                    return false
-                }
-            }
-            alert("welcome user")
-            return true;
-        }
-        else {
-            alert("Name cannot be less than 5 letters")
-        }
+            document.getElementById("demo").innerHTML="successfully registered....."+name;
+
     }
-
 </script>
+
+<body>
+    <form id="myform">
+        User Name : <input type="text" id="username"><br><br>
+        Password : <input type="password" id="password"><br><br>
+        E-mail : <input type="email" id="email" required><br><br>
+        Phone Number: <input type="text" id="phone"> <br><br>
+        <input type="submit" value="submit" onclick="validation()">
+    </form>
+    <div id= " demo " ></div>
+</body>
 
 </html>
