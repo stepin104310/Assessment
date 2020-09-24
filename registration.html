@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
 </head>
+
+<body>
+    <form id="myform">
+        User Name : <input type="text" id="username"><br><br>
+        Password : <input type="password" id="password"><br><br>
+        E-mail : <input type="email" id="email" required><br><br>
+        Phone Number: <input type="text" id="phone"> <br><br>
+        <input type="submit" value="submit" onclick="validation()">
+    </form>
+    <div id= "demo" ></div>
+</body>
 <script type="text/javascript">
 
     function validation() {
@@ -44,16 +55,4 @@
 
     }
 </script>
-
-<body>
-    <form id="myform">
-        User Name : <input type="text" id="username"><br><br>
-        Password : <input type="password" id="password"><br><br>
-        E-mail : <input type="email" id="email" required><br><br>
-        Phone Number: <input type="text" id="phone"> <br><br>
-        <input type="submit" value="submit" onclick="validation()">
-    </form>
-    <div id= "demo" ></div>
-</body>
-
 </html>
