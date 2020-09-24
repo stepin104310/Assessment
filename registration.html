@@ -36,6 +36,7 @@
         if (name == "" || !(name.match(regname))) {
             alert("Enter a valid name more than 5 charachter and less than 15 charachter");
             document.getElementById('username').focus();
+            
         } else if (!(password.match(regpass))) {
             alert("Password should contain lower case, upper case and use dollar sign in your password");
             document.getElementById('password').focus();
