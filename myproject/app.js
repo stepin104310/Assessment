@@ -9,7 +9,7 @@ app.get("/alldetails", function(req, res)
     names = [];
     hotel.forEach(element =>
     {
-        names.push(element) // this will only send name of the hotel, for full detail use push(element) 
+        names.push(element);
     });
     res.send(names);
 })
