@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Sachin",
+        "city": "Kolkata",
+        "type": "Non-Veg",
+        "cuisine": ["Indian", "Thai"]
+    },
+    {
+        "name": "Sumitra",
+        "city": "Jharkhand",
+        "type": "Non-Veg",
+        "cuisine": ["Indian,chinese"]
+    },
+    {
+        "name": "Ram",
+        "city": "Bangalore",
+        "type": "Veg",
+        "cuisine": ["Indian","Chinese","Northern"]
+    },
+    {
+        "name": "Suchita",
+        "city": "Kota",
+        "type": "Non-Veg",
+        "cuisine": ["Italian", "Northern"]
+    },
+    {
+        "name": "Ashish",
+        "city": "Bihar",
+        "type": "Non-Veg",
+        "cuisine": ["Indian","chinese", "Italian"]
+    }
+]
